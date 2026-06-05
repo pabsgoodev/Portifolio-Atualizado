@@ -59,12 +59,58 @@ body.light-mode .card { border-color: var(--accent-color); background: var(--car
 .about h2, .projects h2, .certifications h2 { font-size: 2rem; margin-bottom: 1.5rem; }
 .about p { color: var(--text-sec); max-width: 800px; margin: 0 auto; font-size: 1.1rem; font-weight: 500; }
 
-.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem; }
-.card { background: var(--card-bg); padding: 2.5rem; border-radius: 12px; border: 1px solid var(--accent-color); text-align: left; transition: transform 0.2s; }
-.card:hover { transform: translateY(-4px); }
-.card h3 { margin-bottom: 0.5rem; font-size: 1.4rem; }
-.card p { color: var(--text-sec); font-weight: 500; margin-bottom: 1rem; }
-.card span { color: #a855f7; font-size: 0.9rem; }
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--accent-color);
+    text-align: left;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+.card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+}
+
+.card p {
+    color: var(--text-sec);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 1024px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+}
 
 .cert-list {
     display: flex;
@@ -184,23 +230,31 @@ body.light-mode .project-img {
     align-items: center;
     margin-top: auto;
     padding-top: 1rem;
+    width: 100%;
+    gap: 1rem;
+}
+
+.project-footer .terminal-font {
+    flex: 1;
+    text-align: left;
+    white-space: normal;
+    word-break: break-word;
 }
 
 .project-link {
     color: #a855f7;
     text-decoration: none;
     font-weight: 700;
-    font-size: 0.9.5rem;
+    font-size: 0.95rem;
     transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
 }
 
 .project-link:hover {
     color: #c084fc;
-}
-
-body.light-mode .about-card {
-    background: var(--card-bg);
-    border-color: var(--accent-color);
 }
 
 body.light-mode .project-link {
