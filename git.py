@@ -46,6 +46,8 @@ def cabecalho():
 20 - Criar Tag
 21 - Buscar Atualizações
 22 - Limpar Arquivos Não Rastreados
+23 - Corrigir erro de push
+24 - Forçar push
 0 - Sair
 """)
 
@@ -130,6 +132,22 @@ while True:
 
     elif opcao == "22":
         executar("git clean -fd")
+
+    elif opcao == "23":
+        print(f"{YELLOW}1. Buscando atualizações...{RESET}")
+        executar("git fetch origin")
+
+        print(f"{YELLOW}2. Aplicando rebase...{RESET}")
+        executar("git pull origin main --rebase")
+
+        print(f"{YELLOW}3. Enviando alterações...{RESET}")
+        executar("git push origin main")
+
+    elif opcao == "24":
+        confirmacao = input(f"{RED}Tem certeza que deseja forçar o push? (s/n): {RESET}")
+        
+        if confirmacao.lower() == "s":
+            executar("git push --force")
 
     elif opcao == "0":
         print(f"{YELLOW}Saindo...{RESET}")
